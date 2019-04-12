@@ -298,7 +298,7 @@ def ExportToJson(AbsolutePath, Content):
         # json.dump(Content, f, indent=4)
         for Key,Val in Content.items():
             for V in Val:
-                print >>f, str(Key)+'_'+str(V)
+                f.write( str(str(Key) + '_' + str(V) + '\n').encode() )
 
     except Exception as e:
         print("Json data writing Failed.")
