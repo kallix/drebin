@@ -1,6 +1,6 @@
 Tentative migration of DREBIN's code to python3. 
 Changes made to the original repo: 
-- Removed old copy of Androguard. (Now, its a submodule, pointing to a much newer Androguard)
+- Removed old copy of Androguard. (Now, it's a submodule, pointing to a much newer Androguard)
 - Removed copy of the progressbar module. Get your own instead. (pip3 install progressbar)
 - Fixed stuff incompatible with python3 (print without parenthesis, Bytes vs String, etc)
 
