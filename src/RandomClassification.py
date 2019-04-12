@@ -70,8 +70,8 @@ def RandomClassification(MalwareCorpus, GoodwareCorpus, TestSize, FeatureOption,
         Logger.info("Processing time to train and find best model with GridSearchCV is %s sec." %(round(time.time() -T0, 2)))
         BestModel= SVMModels.best_estimator_
         Logger.info("Best Model Selected : {}".format(BestModel))
-        print "The training time for random split classification is %s sec." % (round(time.time() - T0,2))
-        print "Enter a filename to save the model:"
+        print("The training time for random split classification is %s sec." % (round(time.time() - T0,2)))
+        print("Enter a filename to save the model:")
         filename = raw_input()
         dump(Clf, filename + ".pkl")
     else:
@@ -81,9 +81,9 @@ def RandomClassification(MalwareCorpus, GoodwareCorpus, TestSize, FeatureOption,
     # step 4: Evaluate the best model on test set
     T0 = time.time()
     y_pred = SVMModels.predict(x_test)
-    print "The testing time for random split classification is %s sec." % (round(time.time() - T0,2))
+    print("The testing time for random split classification is %s sec." % (round(time.time() - T0,2)))
     Accuracy = accuracy_score(y_test, y_pred)
-    print "Test Set Accuracy = {}".format(Accuracy)
+    print("Test Set Accuracy = {}".format(Accuracy))
     print(metrics.classification_report(y_test,
                                        y_pred, labels=[1, -1],
                                         target_names=['Malware', 'Goodware']))

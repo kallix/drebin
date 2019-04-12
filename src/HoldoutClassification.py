@@ -69,8 +69,8 @@ def HoldoutClassification(TrainMalSet, TrainGoodSet, TestMalSet, TestGoodSet, Fe
         BestModel= SVMModels.best_estimator_
         Logger.info("Best Model Selected : {}".format(BestModel))
         TrainingTime = round(time.time() - T0,2)
-        print "The training time for random split classification is %s sec." % (TrainingTime)
-        print "Enter a filename to save the model:"
+        print("The training time for random split classification is %s sec." % (TrainingTime))
+        print("Enter a filename to save the model:")
         filename = raw_input()
         dump(Clf, filename+".pkl")
     else:
@@ -82,7 +82,7 @@ def HoldoutClassification(TrainMalSet, TrainGoodSet, TestMalSet, TestGoodSet, Fe
     y_pred = SVMModels.predict(x_test)
     TestingTime = round(time.time() - TrainingTime - T0,2)
     Accuracy = accuracy_score(y_test, y_pred)  # Return (x1 == x2) element-wise.
-    print "Test Set Accuracy = ", Accuracy
+    print("Test Set Accuracy = ", Accuracy)
     print(metrics.classification_report(y_test,
                                         y_pred, labels=[1, -1],
                                         target_names=['Malware', 'Goodware']))

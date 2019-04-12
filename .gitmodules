@@ -1,0 +1,3 @@
+[submodule "src/androguard"]
+	path = src/androguard
+	url = https://github.com/androguard/androguard.git

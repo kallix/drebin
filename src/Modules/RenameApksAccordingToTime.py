@@ -11,7 +11,7 @@ import zipfile
 
 def RenameApk(Directory):
     Directory = os.path.normpath(Directory)
-    print "Renaming ", Directory, ":"
+    print("Renaming ", Directory, ":")
     for Apk in CM.ListApkFiles(Directory):
         try:
             ZipApk = zipfile.ZipFile(Apk, "r")
@@ -27,7 +27,7 @@ def RenameApk(Directory):
         except:
             sys.stdout.write("X")
             continue
-    print 
+    print()
     return
 
 
