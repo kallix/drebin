@@ -76,9 +76,9 @@ class ProgressBar(object):
         self.Update()
         self.ProgressBar.finish()
         self.EndTime = time.time()
-        print "Processing finished."
+        print("Processing finished.")
         #print "Processing results: ", self.TotalResults
-        print "Time Elapsed: %.2fs, or %.2fmins, or %.2fhours" % ((self.EndTime-self.StartTime),(self.EndTime-self.StartTime)/60,(self.EndTime-self.StartTime)/3600)
+        print("Time Elapsed: %.2fs, or %.2fmins, or %.2fhours" % ((self.EndTime-self.StartTime),(self.EndTime-self.StartTime)/60,(self.EndTime-self.StartTime)/3600))
         logger.info("Processing finished.")
         logger.info("Processing results: "+ str(self.TotalResults))
         logger.info("Time Elapsed: %.2fs, or %.2fmins, or %.2fhours" % ((self.EndTime-self.StartTime),(self.EndTime-self.StartTime)/60,(self.EndTime-self.StartTime)/3600))
@@ -301,7 +301,7 @@ def ExportToJson(AbsolutePath, Content):
                 print >>f, str(Key)+'_'+str(V)
 
     except Exception as e:
-        print "Json data writing Failed."
+        print("Json data writing Failed.")
         logger.error(e)
         logger.error("Json data writing Failed.")
         if "f" in dir():
@@ -328,7 +328,7 @@ def ExportToPkl(AbsolutePath,Content):
         f=open(AbsolutePath, "wb")
         pickle.dump(Content, f)
     except:
-        print "Pickle data writing Failed."
+        print("Pickle data writing Failed.")
         logger.error("Pickle data writing Failed.")
         if "f" in dir():
             f.close()
@@ -371,7 +371,7 @@ def ExportToJsonNodeLinkData(AbsolutePath,GraphContent):
         Content=json_graph.node_link_data(GraphContent)
         json.dump(Content,f,indent=4)
     except Exception as e:
-        print e
+        print(e)
         logger.error("JsonNodeLinkData writing Failed.")
         if "f" in dir():
             f.close()
@@ -500,7 +500,7 @@ def DeleteCsrMatrixRow(mat, i):
     '''
     if not isinstance(mat, scipy.sparse.csr_matrix):
         try:
-            print "Warning: works only for CSR format -- use .tocsr() first"
+            print("Warning: works only for CSR format -- use .tocsr() first")
             mat = mat.tocsr()
         except:
             raise ValueError("cannot convert mat to CSR format")

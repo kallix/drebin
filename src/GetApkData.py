@@ -1,6 +1,4 @@
 import sys
-reload(sys)
-sys.setdefaultencoding("utf-8")
 
 import os
 import time
@@ -54,7 +52,7 @@ def GetFromXML(ApkDirectoryPath, ApkFile):
         f.write((a.xml["AndroidManifest.xml"].toprettyxml()).encode("utf-8"))
         f.close()
     except Exception as e:
-        print e
+        print(e)
         logger.error(e)
         logger.error("Executing Androlyze on " + ApkFile + " to get AndroidManifest.xml Failed.")
         return
@@ -136,7 +134,7 @@ def GetFromInstructions(ApkDirectoryPath, ApkFile, PMap, RequestedPermissionList
         ApkFile = os.path.abspath(ApkFile)
         a, d, dx = androlyze.AnalyzeAPK(ApkFile)
     except Exception as e:
-        print e
+        print(e)
         logger.error(e)
         logger.error("Executing Androlyze on " + ApkFile + " Failed.")
         return
@@ -216,12 +214,12 @@ def ProcessingDataForGetApkData(ApkDirectoryPath, ApkFile, PMap):
         FinalTime = time.time()
         logger.error(e)
         logger.error(ApkFile + " processing failed in " + str(FinalTime - StartTime) + "s...")
-        print ApkFile + " processing failed in " + str(FinalTime - StartTime) + "s..."
+        print(ApkFile + " processing failed in " + str(FinalTime - StartTime) + "s...")
         return ApkFile, False
     else:
         FinalTime = time.time()
         logger.info(ApkFile + " processed successfully in " + str(FinalTime - StartTime) + "s")
-        print ApkFile + " processed successfully in " + str(FinalTime - StartTime) + "s"
+        print(ApkFile + " processed successfully in " + str(FinalTime - StartTime) + "s")
         return ApkFile, True
 
 
