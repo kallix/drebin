@@ -26,8 +26,8 @@ logger = logging.getLogger()
 logger.addHandler(ErrorHandler)
 
 
-import Modules.progressbar.progressbar as progressbar
-import Modules.progressbar.widgets as progressbar_widgets
+import progressbar
+import progressbar.widgets as progressbar_widgets
 
 class ProgressBar(object):
     def __init__(self):
